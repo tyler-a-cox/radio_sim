@@ -39,8 +39,6 @@ setup_args = {
         "scipy",
         "astropy",
         "pyuvdata",
-        "linsolve @ git+git://github.com/HERA-Team/linsolve",
-        "hera_cal @ git+git://github.com/HERA-Team/hera_cal",
     ],
     "extras_require": {
         "all": [
