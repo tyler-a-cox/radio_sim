@@ -6,8 +6,6 @@ from astropy import constants as const
 from scipy.interpolate import interp1d
 import aipy
 
-from beams import beam_gaussian
-
 from tqdm import tqdm
 from hera_cal.redcal import get_pos_reds
 

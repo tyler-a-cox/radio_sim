@@ -7,8 +7,6 @@ from scipy.interpolate import interp1d
 import aipy
 
 from tqdm import tqdm
-from hera_cal.redcal import get_pos_reds
-
 from multiprocessing import Pool
 
 
@@ -21,10 +19,12 @@ def point_source_foregrounds(
     chromatic=False,
     return_beta=True,
     beta=None,
+    seed=42,
 ):
     """
     Generate a catalogue of point source foregrounds
     """
+    np.random.seed(seed)
     theta = np.random.uniform(0, np.pi / 2.0, n_sources)
     phi = np.random.uniform(0, 2 * np.pi, n_sources)
 
