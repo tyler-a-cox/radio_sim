@@ -79,4 +79,34 @@ class Array:
         return str(gains)
 
     def __add__(self, array):
-        antpos = self.antpos + array.antpos
+        """
+        A short description.
+
+        A bit longer description.
+
+        Args:
+            variable (type): description
+
+        Returns:
+            type: description
+
+        Raises:
+            Exception: description
+
+        """
+
+        keys = set(list(array.antpos.keys()) + list(self.antpos.keys()))
+        antpos = {}
+        for k in keys:
+            a, b = self.antpos.get(k), array.antpos.get(k)
+            if a and b:
+                antpos["arr0_{}".format(k)] = a
+                antpos["arr1_{}".format(k)] = b
+
+            elif a:
+                antpos[k] = a
+
+            elif b:
+                antpos[k] = b
+
+        return Array(antpos)
