@@ -14,12 +14,16 @@ from multiprocessing import Pool
 
 def beam_gaussian(xs, fqs, width=0.07, mfreq=150, chromatic=True):
     """
-    A short description.
+    Gaussian shaped beam
 
     A bit longer description.
 
     Args:
-        variable (type): description
+        xs (np.ndarray, or float):
+        fqs:
+        width:
+        mfreq:
+        chromatic:
 
     Returns:
         type: description
@@ -46,7 +50,11 @@ def beam_sinc(xs, fqs, width=0.07, mfreq=150, chromatic=True):
     A bit longer description.
 
     Args:
-        variable (type): description
+        xs (np.ndarray, or float):
+        fqs:
+        width:
+        mfreq:
+        chromatic:
 
     Returns:
         type: description
@@ -72,8 +80,12 @@ def beam_airy(xs, fqs):
 
     A bit longer description.
 
-    Args:
-        variable (type): description
+    AArgs:
+        xs (np.ndarray, or float):
+        fqs:
+        width:
+        mfreq:
+        chromatic:
 
     Returns:
         type: description

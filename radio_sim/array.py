@@ -20,7 +20,7 @@ class Array:
 
     """
 
-    def __init__(self, antpos, gains=None, redundant=True):
+    def __init__(self, antpos, gains=None, redundant=True, nfreqs=1024):
         """
         A short description.
 
@@ -35,3 +35,23 @@ class Array:
 
         if redundant:
             pass
+
+        if gains:
+            self.gains = gains
+
+        else:
+            self.gains = {key: np.ones(nfreqs) for key in self.antpos.keys()}
+
+    def __repr__(self):
+        """
+        A short description.
+
+        A bit longer description.
+
+        Args:
+            variable (type): description
+
+        Returns:
+            type: description
+        """
+        return str(gains)
