@@ -109,4 +109,9 @@ class Array:
             elif b:
                 antpos[k] = b
 
-        return Array(antpos)
+        class_vars = {k: v for k, v in self.__dict__.items() if k is not "antpos"}
+        return Array(antpos, **class_vars)
+
+    def __repr__(self):
+        """ """
+        return str(self.antpos)
