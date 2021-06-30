@@ -4,8 +4,6 @@ from scipy.special import j1
 from astropy import units as un
 from astropy import constants as const
 from scipy.interpolate import interp1d
-import aipy
-
 from tqdm import tqdm
 from multiprocessing import Pool
 
