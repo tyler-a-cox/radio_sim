@@ -29,7 +29,7 @@ setup_args = {
     "author": "Tyler Cox",
     "url": "https://github.com/tyler-a-cox/radio_sim",
     "license": "BSD",
-    "description": "collection of calibration routines to run on the HERA instrument.",
+    "description": "Simple radio interferometer simulator for testing nucal",
     "package_dir": {"radio_sim": "radio_sim"},
     "packages": ["radio_sim"],
     "include_package_data": True,
