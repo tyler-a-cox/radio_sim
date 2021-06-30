@@ -43,7 +43,6 @@ setup_args = {
     "extras_require": {
         "all": [
             "aipy>=3.0",
-            "uvtools @ git+git://github.com/HERA-Team/uvtools",
         ]
     },
     "zip_safe": False,
