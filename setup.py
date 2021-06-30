@@ -25,6 +25,7 @@ data_files = package_files("hera_cal", "data") + package_files(
 
 setup_args = {
     "name": "radio_sim",
+    "version": "0.0.2",
     "author": "Tyler Cox",
     "url": "https://github.com/tyler-a-cox/radio_sim",
     "license": "BSD",
