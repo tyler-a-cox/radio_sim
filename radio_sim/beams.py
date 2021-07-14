@@ -10,7 +10,7 @@ from hera_cal.redcal import get_pos_reds
 from multiprocessing import Pool
 
 
-def beam_gaussian(xs, fqs, width=0.07, mfreq=150, chromatic=True):
+def beam_gaussian(xs, fqs, width=0.0001, mfreq=150, chromatic=True, n=0.5):
     """
     Gaussian shaped beam
 
@@ -37,7 +37,7 @@ def beam_gaussian(xs, fqs, width=0.07, mfreq=150, chromatic=True):
     else:
         width = width * np.ones_like(fqs)
 
-    resp = np.exp(-(xs ** 2) / (2 * np.sin(width[:, None]) ** 2)).astype(np.float32)
+    resp = np.exp(-(xs ** 2) / (2 * np.sin(width[:, None] ** n))).astype(np.float32)
     return resp
 
 

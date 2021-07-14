@@ -14,6 +14,47 @@ from .sky import point_source_foregrounds
 c = const.c  # speed of light in meters per second
 
 
+class DiffuseSim:
+    def __init__(self, antpos, beam, sky, phi, nu):
+        """ """
+        self.antpos = antpos
+        self.beam = beam
+        self.sky = sky
+        self.theta = theta
+        self.phi = phi
+        self.nu = nu
+
+        self.uv = {}
+
+        for i, vi in self.antpos.items():
+            for j, vj in self.antpos.items():
+                if i != j and self.uv.get((j, i)) is None:
+                    self.uv[(i, j)] = np.abs(vi - vj)
+
+        self.delays = {k: self.tau(v, theta, phi) for k, v in self.uv.items()}
+
+    def simulate(self):
+        """ """
+        pass
+
+    def tau(self, b, theta, phi):
+        """
+        Healpix map of delays
+
+        b : np.ndarray, (3,)
+            baseline vector
+
+        theta : np.
+        """
+        bx, by, bz = b * un.m
+        l, m, n = (
+            np.cos(theta) * np.sin(phi),
+            np.cos(theta) * np.cos(phi),
+            np.sin(theta),
+        )
+        return (bx * l + by * m + bz * n) / const.c
+
+
 class RadioSim:
     """
     Class for simulating radio visibilities
