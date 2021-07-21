@@ -13,6 +13,12 @@ from .sky import point_source_foregrounds
 
 c = const.c  # speed of light in meters per second
 
+"""
+Notes for later implementation:
+
+- Make the simulator be one class. Make it simulate based on the what it's given
+"""
+
 
 class DiffuseSim:
     def __init__(self, antpos, beam, sky, phi, nu):

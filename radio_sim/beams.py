@@ -41,9 +41,9 @@ def beam_gaussian(xs, fqs, width=0.0001, mfreq=150, chromatic=True, n=0.5):
     return resp
 
 
-def beam_sinc(xs, fqs, width=0.07, mfreq=150, chromatic=True):
+def beam_sinc(xs, fqs, width=0.045, mfreq=150, n=0.5, chromatic=True):
     """
-    A short description.
+    Gaussian shaped beam
 
     A bit longer description.
 
@@ -61,43 +61,18 @@ def beam_sinc(xs, fqs, width=0.07, mfreq=150, chromatic=True):
         Exception: description
 
     """
+    xs = np.array(xs)
+    xs.shape = (xs.size, 1)
+    fqs = np.array(fqs)
+    fqs.shape = (1, fqs.size)
+
     if chromatic:
         width = width * mfreq / fqs
 
     else:
         width = width * np.ones_like(fqs)
 
-    # TODo: replace this with an implementation of a sinc beam
-    resp = ...
-    return resp
-
-
-def beam_airy(xs, fqs):
-    """
-    A short description.
-
-    A bit longer description.
-
-    AArgs:
-        xs (np.ndarray, or float):
-        fqs:
-        width:
-        mfreq:
-        chromatic:
-
-    Returns:
-        type: description
-
-    Raises:
-        Exception: description
-
-    """
-    if chromatic:
-        width = width * mfreq / fqs
-
-    else:
-        width = width * np.ones_like(fqs)
-
-    # TODo: replace this with an implementation of a sinc beam
-    resp = ...
-    return resp
+    width.shape = (1, -1)
+    resp = np.sinc(xs / np.sin(width ** n)).astype(np.float32) ** 2
+    resp.shape = (xs.size, fqs.size)
+    return resp.T
