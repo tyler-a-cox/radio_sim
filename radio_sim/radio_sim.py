@@ -117,6 +117,7 @@ class RadioSim:
 
         """
         sky = self.sky * self.beam
+
         visibilities = {}
 
         for k, delay in tqdm(self.delays.items()):
@@ -125,6 +126,16 @@ class RadioSim:
             )
 
         return visibilities
+
+    def simulate_baseline(nu, bls, sky, beam):
+        """
+        """
+        beamsky = sky * beam
+        delay = self.tau(bls, self.theta, self.phi)
+        visibility = np.sum(
+            beamsky * np.exp(-2 * np.pi * 1j * nu[:, None] * delay).value, axis=1
+        )
+        return visibility
 
     def simulate_u(self, us):
         """ """
